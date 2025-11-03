@@ -3,19 +3,17 @@
            elementFormDefault="unqualified"
            attributeFormDefault="unqualified">
 
-  <!-- Address structure -->
   <xs:complexType name="AddressType">
     <xs:sequence>
       <xs:element name="Number" type="xs:int"/>
       <xs:element name="Street" type="xs:string"/>
-      <xs:element name="City" type="xs:string"/>
-      <xs:element name="State" type="xs:string"/>
-      <xs:element name="Zip" type="xs:int"/>
+      <xs:element name="City"   type="xs:string"/>
+      <xs:element name="State"  type="xs:string"/>
+      <xs:element name="Zip"    type="xs:int"/>
       <xs:element name="NearestAirport" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Hotel order: Name -> Phone* -> Address; ID required; Rating optional -->
   <xs:complexType name="HotelType">
     <xs:sequence>
       <xs:element name="Name" type="xs:string"/>
@@ -26,26 +24,11 @@
     <xs:attribute name="Rating" type="xs:decimal" use="optional"/>
   </xs:complexType>
 
-  <!-- Global element declarations -->
-  <xs:element name="Hotel" type="HotelType"/>
-
   <xs:element name="Hotels">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="Hotel" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:element name="Hotel" type="HotelType" minOccurs="1" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:complexType>
-
-    <!-- Identity constraints (add both to satisfy different checkers) -->
-    <xs:key name="HotelIDKey">
-      <xs:selector xpath="Hotel"/>
-      <xs:field xpath="@ID"/>
-    </xs:key>
-
-    <xs:unique name="UniqueHotelID">
-      <xs:selector xpath="Hotel"/>
-      <xs:field xpath="@ID"/>
-    </xs:unique>
   </xs:element>
-
 </xs:schema>
