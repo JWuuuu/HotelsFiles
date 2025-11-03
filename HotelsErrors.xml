@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mutation (1): root element is Hotel instead of Hotels -->
-<Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/JWuuuu/HotelsFiles/main/Hotels.xsd">
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/JWuuuu/HotelsFiles/main/Hotels.xsd">
 
-  <!-- OK -->
+  <!-- OK (valid) -->
   <Hotel ID="1" Rating="4.2">
     <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
@@ -18,7 +17,7 @@
     </Address>
   </Hotel>
 
-  <!-- Mutation (2): required attribute missing (no ID) -->
+  <!-- ERROR #1: missing required attribute ID -->
   <Hotel Rating="3.9">
     <Name>Graduate Tempe</Name>
     <Phone>480-967-9431</Phone>
@@ -33,7 +32,7 @@
     </Address>
   </Hotel>
 
-  <!-- Mutation (3): Phone element missing for this hotel -->
+  <!-- ERROR #2: Phone missing (minOccurs=1 violated) -->
   <Hotel ID="3" Rating="4.3">
     <Name>AC Hotel Phoenix Tempe/Downtown</Name>
     <Address>
@@ -46,9 +45,10 @@
     </Address>
   </Hotel>
 
-  <!-- Mutation (4): Address has no closing tag (intentionally malformed XML) -->
+  <!-- ERROR #3: duplicate Name element (maxOccurs=1 violated) -->
   <Hotel ID="4">
     <Name>Hyatt Place Tempe/Phoenix Airport</Name>
+    <Name>Hyatt Place Tempe Airport (Duplicate)</Name>
     <Phone>602-431-5000</Phone>
     <Phone>888-492-8847</Phone>
     <Address>
@@ -58,12 +58,12 @@
       <State>AZ</State>
       <Zip>85281</Zip>
       <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
   </Hotel>
 
-  <!-- Mutation (5): Two Name elements for one hotel -->
+  <!-- ERROR #4: wrong datatype for Zip (xs:int expected) -->
   <Hotel ID="5" Rating="4.0">
     <Name>Courtyard by Marriott Tempe Downtown</Name>
-    <Name>Courtyard Tempe Downtown</Name>
     <Phone>480-966-2800</Phone>
     <Phone>800-321-2211</Phone>
     <Address>
@@ -71,11 +71,93 @@
       <Street>S Ash Ave</Street>
       <City>Tempe</City>
       <State>AZ</State>
+      <Zip>85A281</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+
+  <!-- ERROR #5: wrong element name (NearestAirPort is not declared in XSD) -->
+  <Hotel ID="6">
+    <Name>Residence Inn Tempe Downtown/University</Name>
+    <Phone>480-967-2300</Phone>
+    <Address>
+      <Number>510</Number>
+      <Street>S Forest Ave</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirPort>Sky Harbor</NearestAirPort>
+    </Address>
+  </Hotel>
+
+  <!-- OK (valid) -->
+  <Hotel ID="7" Rating="4.1">
+    <Name>Moxy Phoenix Tempe/ASU Area</Name>
+    <Phone>480-968-3451</Phone>
+    <Address>
+      <Number>1333</Number>
+      <Street>S Rural Rd</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
       <Zip>85281</Zip>
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
 
-  <!-- The remaining entries can mirror Hotels.xml; the above 5 mutations satisfy the spec -->
+  <!-- OK (valid) -->
+  <Hotel ID="8">
+    <Name>DoubleTree by Hilton Phoenix Tempe</Name>
+    <Phone>480-967-1441</Phone>
+    <Address>
+      <Number>2100</Number>
+      <Street>S Priest Dr</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85282</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
 
-</Hotel>
+  <!-- OK (valid) -->
+  <Hotel ID="9" Rating="4.1">
+    <Name>Hilton Phoenix Airport</Name>
+    <Phone>480-894-1600</Phone>
+    <Address>
+      <Number>2435</Number>
+      <Street>S 47th St</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85034</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+
+  <!-- OK (valid) -->
+  <Hotel ID="10">
+    <Name>Fairfield Inn &amp; Suites Phoenix Tempe</Name>
+    <Phone>480-967-6600</Phone>
+    <Address>
+      <Number>2222</Number>
+      <Street>W Baseline Rd</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85283</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+
+  <!-- OK (valid) -->
+  <Hotel ID="11">
+    <Name>Tempe Mission Palms</Name>
+    <Phone>480-894-1400</Phone>
+    <Address>
+      <Number>60</Number>
+      <Street>E 5th St</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+
+</Hotels>
