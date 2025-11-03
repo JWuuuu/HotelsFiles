@@ -3,7 +3,6 @@
            elementFormDefault="unqualified"
            attributeFormDefault="unqualified">
 
-  <!-- Address: numbers & zip are integers; airport is a string -->
   <xs:complexType name="AddressType">
     <xs:sequence>
       <xs:element name="Number" type="xs:int"/>
@@ -15,7 +14,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Hotel: Name, one-or-more Phone, Address; ID required, Rating optional -->
   <xs:complexType name="HotelType">
     <xs:sequence>
       <xs:element name="Name" type="xs:string"/>
@@ -26,7 +24,6 @@
     <xs:attribute name="Rating" type="xs:decimal" use="optional"/>
   </xs:complexType>
 
-  <!-- Root: at least 10 Hotel entries -->
   <xs:element name="Hotels">
     <xs:complexType>
       <xs:sequence>
@@ -34,5 +31,4 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
 </xs:schema>
