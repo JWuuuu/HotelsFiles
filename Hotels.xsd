@@ -3,7 +3,7 @@
            elementFormDefault="unqualified"
            attributeFormDefault="unqualified">
 
-  <!-- Address: numbers & zip are integers; airport is a string -->
+  <!-- Address structure: Number -> Street -> City -> State -> Zip -> NearestAirport -->
   <xs:complexType name="AddressType">
     <xs:sequence>
       <xs:element name="Number" type="xs:int"/>
@@ -15,7 +15,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Hotel: Name -> Phone* -> Address; ID required; Rating optional -->
+  <!-- Hotel order: Name -> one-or-more Phone -> Address -->
   <xs:complexType name="HotelType">
     <xs:sequence>
       <xs:element name="Name" type="xs:string"/>
@@ -26,7 +26,7 @@
     <xs:attribute name="Rating" type="xs:decimal" use="optional"/>
   </xs:complexType>
 
-  <!-- Root -->
+  <!-- Root: one-or-more Hotel -->
   <xs:element name="Hotels">
     <xs:complexType>
       <xs:sequence>
@@ -34,12 +34,10 @@
       </xs:sequence>
     </xs:complexType>
 
-    <!-- Enforce unique @ID across all Hotel elements -->
+    <!-- Require every Hotel to have a unique @ID -->
     <xs:key name="HotelIDKey">
       <xs:selector xpath="Hotel"/>
       <xs:field xpath="@ID"/>
     </xs:key>
   </xs:element>
 </xs:schema>
-
-
