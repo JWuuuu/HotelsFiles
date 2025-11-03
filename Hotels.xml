@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-This file intentionally includes REQUIRED schema / structure errors for Assignment 4.
-These 5 injected errors are:
+Assignment 4 - HotelsErrors.xml
+This file is INTENTIONALLY INVALID to trigger schema and well-formedness errors.
+
+Injected errors required by the assignment:
 
 (1) Root element is <Hotel> instead of <Hotels>.
-(2) A required attribute is missing (NearestAirport missing in H2 Address).
-(3) A Phone element is missing in H3.
-(4) An Address element has no closing tag (H4).
-(5) Two Name elements are provided for one hotel (H4).
+(2) Missing required attribute (NearestAirport missing in H2 Address).
+(3) Missing <Phone> element in H3.
+(4) Unclosed <Address> tag in H4.
+(5) Duplicate <Name> element in H4.
 -->
 
 <Hotel>
 
-  <!-- H1: structurally OK, serves as baseline for comparison -->
+  <!-- Hotel H1: mostly valid (baseline for comparison) -->
   <Hotel ID="H1" Rating="4.2">
     <Name>Westin Tempe</Name>
     <Address
@@ -27,8 +29,7 @@ These 5 injected errors are:
     <Phone>800-937-8461</Phone>
   </Hotel>
 
-
-  <!-- H2: ERROR TYPE (2): missing required attribute "NearestAirport" in Address -->
+  <!-- Hotel H2: ERROR (2) missing required attribute NearestAirport -->
   <Hotel ID="H2" Rating="3.9">
     <Name>Hyatt Place Tempe / Phoenix Airport</Name>
     <Address
@@ -37,13 +38,11 @@ These 5 injected errors are:
       City="Tempe"
       State="AZ"
       Zip="85281"
-      <!-- NearestAirport is INTENTIONALLY REMOVED to simulate required attribute missing -->
-    />
+      />
     <Phone>480-804-9544</Phone>
   </Hotel>
 
-
-  <!-- H3: ERROR TYPE (3): missing a Phone element entirely -->
+  <!-- Hotel H3: ERROR (3) missing Phone -->
   <Hotel ID="H3" Rating="4.1">
     <Name>AC Hotel Phoenix Tempe</Name>
     <Address
@@ -53,20 +52,18 @@ These 5 injected errors are:
       State="AZ"
       Zip="85281"
       NearestAirport="Sky Harbor" />
-    <!-- INTENTIONALLY no <Phone> elements here -->
+    <!-- No <Phone> elements here on purpose -->
   </Hotel>
 
-
-  <!-- H4: ERROR TYPES (4) and (5):
-       - Two <Name> elements
-       - Address tag not properly closed
-         (will break well-formedness)
+  <!-- Hotel H4: ERRORS (4) and (5)
+       - Address tag never properly closed (bad XML)
+       - Two Name elements
   -->
   <Hotel ID="H4" Rating="4.0">
     <Name>Hilton Phoenix Airport</Name>
     <Name>Hilton Phoenix Airport (Duplicate Name)</Name>
 
-    <!-- BAD ADDRESS: start tag never closed properly -->
+    <!-- BAD ADDRESS: we open <Address ...> but do NOT close it -->
     <Address
       Number="2435"
       Street="S 47th St"
@@ -74,12 +71,6 @@ These 5 injected errors are:
       State="AZ"
       Zip="85034"
       NearestAirport="Sky Harbor">
-
-    <!-- Notice:
-         There is NO "/>" self-close
-         There is NO "</Address>" closing tag.
-         This is intentional to inject the “no closing tag” error.
-    -->
 
     <Phone>480-894-1600</Phone>
   </Hotel>
