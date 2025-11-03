@@ -1,67 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Mutation (1): root element is Hotel instead of Hotels -->
+<Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/JWuuuu/HotelsFiles/main/Hotels.xsd">
 
-<!--
-Assignment 4 - HotelsErrors.xml
-This file is INTENTIONALLY INVALID to trigger schema and well-formedness errors.
-
-Injected errors required by the assignment:
-
-(1) Root element is <Hotel> instead of <Hotels>.
-(2) Missing required attribute (NearestAirport missing in H2 Address).
-(3) Missing <Phone> element in H3.
-(4) Unclosed <Address> tag in H4.
-(5) Duplicate <Name> element in H4.
--->
-
-<Hotel>
-  <Hotel ID="H1" Rating="4.2">
-    <Name>Westin Tempe</Name>
-    <Address
-      Number="11"
-      Street="E 7th St"
-      City="Tempe"
-      State="AZ"
-      Zip="85281"
-      NearestAirport="Sky Harbor" />
+  <!-- OK -->
+  <Hotel ID="1" Rating="4.2">
+    <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
     <Phone>800-937-8461</Phone>
+    <Address>
+      <Number>11</Number>
+      <Street>E 7th St</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
   </Hotel>
 
-  <Hotel ID="H2" Rating="3.9">
-    <Name>Hyatt Place Tempe / Phoenix Airport</Name>
-    <Address
-      Number="1413"
-      Street="W Rio Salado Pkwy"
-      City="Tempe"
-      State="AZ"
-      Zip="85281"
-      />
-    <Phone>480-804-9544</Phone>
+  <!-- Mutation (2): required attribute missing (no ID) -->
+  <Hotel Rating="3.9">
+    <Name>Graduate Tempe</Name>
+    <Phone>480-967-9431</Phone>
+    <Phone>877-846-9343</Phone>
+    <Address>
+      <Number>225</Number>
+      <Street>E Apache Blvd</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
   </Hotel>
 
-  <Hotel ID="H3" Rating="4.1">
-    <Name>AC Hotel Phoenix Tempe</Name>
-    <Address
-      Number="100"
-      Street="E Rio Salado Pkwy"
-      City="Tempe"
-      State="AZ"
-      Zip="85281"
-      NearestAirport="Sky Harbor" />
-    <!-- No <Phone> here on purpose -->
+  <!-- Mutation (3): Phone element missing for this hotel -->
+  <Hotel ID="3" Rating="4.3">
+    <Name>AC Hotel Phoenix Tempe/Downtown</Name>
+    <Address>
+      <Number>100</Number>
+      <Street>E Rio Salado Pkwy</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
   </Hotel>
 
-  <Hotel ID="H4" Rating="4.0">
-    <Name>Hilton Phoenix Airport</Name>
-    <Name>Hilton Phoenix Airport (Duplicate Name)</Name>
-    <Address
-      Number="2435"
-      Street="S 47th St"
-      City="Phoenix"
-      State="AZ"
-      Zip="85034"
-      NearestAirport="Sky Harbor">
-    <Phone>480-894-1600</Phone>
+  <!-- Mutation (4): Address has no closing tag (intentionally malformed XML) -->
+  <Hotel ID="4">
+    <Name>Hyatt Place Tempe/Phoenix Airport</Name>
+    <Phone>602-431-5000</Phone>
+    <Phone>888-492-8847</Phone>
+    <Address>
+      <Number>1413</Number>
+      <Street>W Rio Salado Pkwy</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
   </Hotel>
+
+  <!-- Mutation (5): Two Name elements for one hotel -->
+  <Hotel ID="5" Rating="4.0">
+    <Name>Courtyard by Marriott Tempe Downtown</Name>
+    <Name>Courtyard Tempe Downtown</Name>
+    <Phone>480-966-2800</Phone>
+    <Phone>800-321-2211</Phone>
+    <Address>
+      <Number>601</Number>
+      <Street>S Ash Ave</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+
+  <!-- The remaining entries can mirror Hotels.xml; the above 5 mutations satisfy the spec -->
 
 </Hotel>
