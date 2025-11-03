@@ -17,7 +17,7 @@
     </Address>
   </Hotel>
 
-  <!-- ERROR #2: Phone missing (minOccurs=1) -->
+  <!-- ERROR #2: Phone missing -->
   <Hotel ID="3" Rating="4.3">
     <Name>AC Hotel Phoenix Tempe/Downtown</Name>
     <Address>
@@ -30,7 +30,7 @@
     </Address>
   </Hotel>
 
-  <!-- ERROR #3: duplicate Name element -->
+  <!-- ERROR #3: duplicate Name -->
   <Hotel ID="4">
     <Name>Hyatt Place Tempe/Phoenix Airport</Name>
     <Name>Hyatt Place Tempe Airport (Duplicate)</Name>
