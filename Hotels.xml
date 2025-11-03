@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="Hotels.xsd">
-
-  <!-- 1: Required sample (exact values) -->
-  <Hotel ID="1" Rating="4.2">
+  <Hotel ID="H001" Rating="4.2">
     <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
     <Phone>800-937-8461</Phone>
@@ -13,12 +11,12 @@
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
+      <!-- NOTE: Keep this intentional misspelling to match the assignment sample -->
       <NearestAirport>Sky Habor</NearestAirport>
     </Address>
   </Hotel>
 
-  <!-- 2 -->
-  <Hotel ID="2" Rating="3.9">
+  <Hotel ID="H002" Rating="3.9">
     <Name>Graduate Tempe</Name>
     <Phone>480-967-9431</Phone>
     <Phone>877-846-9343</Phone>
@@ -32,8 +30,7 @@
     </Address>
   </Hotel>
 
-  <!-- 3 -->
-  <Hotel ID="3" Rating="4.3">
+  <Hotel ID="H003" Rating="4.3">
     <Name>AC Hotel Phoenix Tempe/Downtown</Name>
     <Phone>480-642-6140</Phone>
     <Phone>888-236-2427</Phone>
@@ -47,8 +44,7 @@
     </Address>
   </Hotel>
 
-  <!-- 4 -->
-  <Hotel ID="4">
+  <Hotel ID="H004">
     <Name>Hyatt Place Tempe/Phoenix Airport</Name>
     <Phone>602-431-5000</Phone>
     <Phone>888-492-8847</Phone>
@@ -62,8 +58,7 @@
     </Address>
   </Hotel>
 
-  <!-- 5 -->
-  <Hotel ID="5" Rating="4.0">
+  <Hotel ID="H005" Rating="4.0">
     <Name>Courtyard by Marriott Tempe Downtown</Name>
     <Phone>480-966-2800</Phone>
     <Phone>800-321-2211</Phone>
@@ -77,8 +72,7 @@
     </Address>
   </Hotel>
 
-  <!-- 6 -->
-  <Hotel ID="6">
+  <Hotel ID="H006">
     <Name>Residence Inn Tempe Downtown/University</Name>
     <Phone>480-967-2300</Phone>
     <Address>
@@ -91,8 +85,7 @@
     </Address>
   </Hotel>
 
-  <!-- 7 -->
-  <Hotel ID="7" Rating="4.1">
+  <Hotel ID="H007" Rating="4.1">
     <Name>Moxy Phoenix Tempe/ASU Area</Name>
     <Phone>480-968-3451</Phone>
     <Address>
@@ -105,8 +98,7 @@
     </Address>
   </Hotel>
 
-  <!-- 8 -->
-  <Hotel ID="8">
+  <Hotel ID="H008">
     <Name>DoubleTree by Hilton Phoenix Tempe</Name>
     <Phone>480-967-1441</Phone>
     <Address>
@@ -119,8 +111,7 @@
     </Address>
   </Hotel>
 
-  <!-- 9 -->
-  <Hotel ID="9" Rating="4.1">
+  <Hotel ID="H009" Rating="4.1">
     <Name>Hilton Phoenix Airport</Name>
     <Phone>480-894-1600</Phone>
     <Address>
@@ -133,8 +124,7 @@
     </Address>
   </Hotel>
 
-  <!-- 10 -->
-  <Hotel ID="10">
+  <Hotel ID="H010">
     <Name>Fairfield Inn &amp; Suites Phoenix Tempe</Name>
     <Phone>480-967-6600</Phone>
     <Address>
@@ -146,5 +136,4 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-
 </Hotels>
