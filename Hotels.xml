@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/JWuuuu/HotelsFiles/main/Hotels.xsd">
+        xsi:noNamespaceSchemaLocation="Hotels.xsd">
 
   <Hotel ID="1" Rating="4.2">
     <Name>Westin</Name>
@@ -139,4 +139,5 @@
   </Hotel>
 
 </Hotels>
+
 
