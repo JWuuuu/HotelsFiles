@@ -35,10 +35,11 @@
     </xs:complexType>
 
     <!-- Enforce unique @ID across all Hotel elements -->
-    <xs:unique name="HotelIDKey">
+    <xs:key name="HotelIDKey">
       <xs:selector xpath="Hotel"/>
       <xs:field xpath="@ID"/>
-    </xs:unique>
+    </xs:key>
   </xs:element>
 </xs:schema>
+
 
