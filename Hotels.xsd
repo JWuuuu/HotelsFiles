@@ -3,23 +3,19 @@
            elementFormDefault="unqualified"
            attributeFormDefault="unqualified">
 
-  <xs:annotation>
-    <xs:documentation>Hotels schema: Name, Phone(s), Address; ID required, Rating optional.</xs:documentation>
-  </xs:annotation>
-
-  <!-- Reusable Address type -->
+  <!-- Address type -->
   <xs:complexType name="AddressType">
     <xs:sequence>
-      <xs:element name="Number" type="xs:int"   minOccurs="1" maxOccurs="1"/>
-      <xs:element name="Street" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="City"   type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="State"  type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="Zip"    type="xs:int"    minOccurs="1" maxOccurs="1"/>
-      <xs:element name="NearestAirport" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Number" type="xs:int"/>
+      <xs:element name="Street" type="xs:string"/>
+      <xs:element name="City" type="xs:string"/>
+      <xs:element name="State" type="xs:string"/>
+      <xs:element name="Zip" type="xs:int"/>
+      <xs:element name="NearestAirport" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Hotel type enforces exact order: Name -> Phone* -> Address -->
+  <!-- Hotel type: Name -> Phone* -> Address -->
   <xs:complexType name="HotelType">
     <xs:sequence>
       <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1"/>
@@ -30,13 +26,17 @@
     <xs:attribute name="Rating" type="xs:decimal" use="optional"/>
   </xs:complexType>
 
-  <!-- Root: sequence of hotels -->
+  <!-- Root: Hotels with unique @ID -->
   <xs:element name="Hotels">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Hotel" type="HotelType" minOccurs="1" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:complexType>
+    <xs:unique name="UniqueHotelID">
+      <xs:selector xpath="Hotel"/>
+      <xs:field xpath="@ID"/>
+    </xs:unique>
   </xs:element>
 
 </xs:schema>
